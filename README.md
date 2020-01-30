@@ -7,4 +7,4 @@ Environmental data are available from [WorldClim](https://www.worldclim.org/vers
 ### Genetic data  
 Genetic data are provided as excel files.
   
-The coordinates of *Cicer graecum* are available upon request from the first author, [Ass. Prof. Eleni Tani](etani@aua.gr) since it constitutes a very rare Greek endemic taxon.  
+The coordinates of *Cicer graecum* are available upon request from the first author, Ass. Prof. Eleni Tani (<etani@aua.gr>) since it constitutes a very rare Greek endemic taxon.  
