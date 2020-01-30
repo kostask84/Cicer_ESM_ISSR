@@ -99,11 +99,11 @@ cyn_sph <- cicer
 Dianthus_Data <- BIOMOD_FormatingData(resp.var = rep(1, nrow( cyn_sph ) ), 
                                                               expl.var = predictors_Peloponnese_current_subset,
                                                               resp.xy = cyn_sph[,c('Longitude', 'Latitude')],
-                                                              resp.name = "cicer", ## Depends on which taxon you are ensembling the ESMs
-                                                              PA.nb.rep = 100, ## ecospat accepts only one partition of the background data
-                                                              PA.nb.absences = nrow( cyn_sph ), ## You can change this
-                                                              PA.strategy = 'disk', ## You can change this
-                                                              PA.dist.min  =  5700, ## minimal distance to presences 
+                                                              resp.name = "cicer", 
+                                                              PA.nb.rep = 100, 
+                                                              PA.nb.absences = nrow( cyn_sph ), 
+                                                              PA.strategy = 'disk', 
+                                                              PA.dist.min  =  5700, 
                                                               PA.dist.max  =  57000)
 ##============================================================================##
 
@@ -182,14 +182,14 @@ my_ESM_Dianthus_EFproj_current <- ecospat.ESM.EnsembleProjection(ESM.prediction.
 
 ##============================================================================##
 ## Then, we will simply apply the same function with the same parameters as for
-## the current conditions for 2050 and 2070
+## the current conditions for 2050
 ##============================================================================##
 
 ##--------------
 ## CCSM4 RCP 26
 ##--------------
 
-### Projection of simple bivariate models  into 2070
+### Projection of simple bivariate models  into 2050
 my_ESM_Dianthus_proj_2070_cc26 <- ecospat.ESM.Projection(ESM.modeling.output = my_ESM_Dianthus,
                                            new.env = predictors_Peloponnese_future_cc_26_subset,
                                            parallel = T)
@@ -203,7 +203,7 @@ my_ESM_Dianthus_EFproj_2070_cc26 <- ecospat.ESM.EnsembleProjection(ESM.predictio
 ## CCSM4 RCP 85
 ##--------------
 
-### Projection of simple bivariate models  into 2070
+### Projection of simple bivariate models  into 2050
 my_ESM_Dianthus_proj_2070_cc85 <- ecospat.ESM.Projection(ESM.modeling.output = my_ESM_Dianthus,
                                                             new.env = predictors_Peloponnese_future_cc_85_subset,
                                                             parallel = T)
@@ -217,7 +217,7 @@ my_ESM_Dianthus_EFproj_2070_cc85 <- ecospat.ESM.EnsembleProjection(ESM.predictio
 ## BCC RCP 26
 ##--------------
 
-### Projection of simple bivariate models  into 2070
+### Projection of simple bivariate models  into 2050
 my_ESM_Dianthus_proj_2070_bc26 <- ecospat.ESM.Projection(ESM.modeling.output = my_ESM_Dianthus,
                                                             new.env = predictors_Peloponnese_future_bc_26_subset,
                                                             parallel = T)
@@ -231,7 +231,7 @@ my_ESM_Dianthus_EFproj_2070_bc26 <- ecospat.ESM.EnsembleProjection(ESM.predictio
 ## BCC RCP 85
 ##--------------
 
-### Projection of simple bivariate models  into 2070
+### Projection of simple bivariate models  into 2050
 my_ESM_Dianthus_proj_2070_bc85 <- ecospat.ESM.Projection(ESM.modeling.output = my_ESM_Dianthus,
                                                             new.env = predictors_Peloponnese_future_bc_85_subset,
                                                             parallel = T)
@@ -245,7 +245,7 @@ my_ESM_Dianthus_EFproj_2070_bc85 <- ecospat.ESM.EnsembleProjection(ESM.predictio
 ## HadGEM2 RCP 26
 ##----------------
 
-### Projection of simple bivariate models  into 2070
+### Projection of simple bivariate models  into 2050
 my_ESM_Dianthus_proj_2070_he26 <- ecospat.ESM.Projection(ESM.modeling.output = my_ESM_Dianthus,
                                                             new.env = predictors_Peloponnese_future_he_26_subset,
                                                             parallel = T)
@@ -259,7 +259,7 @@ my_ESM_Dianthus_EFproj_2070_he26 <- ecospat.ESM.EnsembleProjection(ESM.predictio
 ## HadGEM2 RCP 85
 ##----------------
 
-### Projection of simple bivariate models  into 2070
+### Projection of simple bivariate models  into 2050
 my_ESM_Dianthus_proj_2070_he85 <- ecospat.ESM.Projection(ESM.modeling.output = my_ESM_Dianthus,
                                                             new.env = predictors_Peloponnese_future_he_85_subset,
                                                             parallel = T)
@@ -439,38 +439,38 @@ binary_future_Dianthus_he85[he_85_Clamping_Mask_Dianthus > 0] = 0
 
 
 ##============================================================================##
-## SRC current -> 2070
+## SRC current -> 2050
 ##============================================================================##
 
 ##--------------------------------
 ## First do it for all the metrics
 ##--------------------------------
-SRC_current_2070_cc26_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
+SRC_current_2050_cc26_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
                                            binary_future_Dianthus_cc26 )
 
-SRC_current_2070_cc85_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
+SRC_current_2050_cc85_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
                                            binary_future_Dianthus_cc85 )
 
-SRC_current_2070_bc26_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
+SRC_current_2050_bc26_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
                                            binary_future_Dianthus_bc26 )
 
-SRC_current_2070_bc85_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
+SRC_current_2050_bc85_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
                                            binary_future_Dianthus_bc85 )
 
-SRC_current_2070_he26_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
+SRC_current_2050_he26_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
                                            binary_future_Dianthus_he26 )
 
-SRC_current_2070_he85_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
+SRC_current_2050_he85_Dianthus <- BIOMOD_RangeSize( binary_current_Dianthus,
                                            binary_future_Dianthus_he85 )
 
 
 
-SRC_current_2070_cc26_Dianthus$Compt.By.Models
-SRC_current_2070_cc85_Dianthus$Compt.By.Models
-SRC_current_2070_bc26_Dianthus$Compt.By.Models
-SRC_current_2070_bc85_Dianthus$Compt.By.Models
-SRC_current_2070_he26_Dianthus$Compt.By.Models
-SRC_current_2070_he85_Dianthus$Compt.By.Models
+SRC_current_2050_cc26_Dianthus$Compt.By.Models
+SRC_current_2050_cc85_Dianthus$Compt.By.Models
+SRC_current_2050_bc26_Dianthus$Compt.By.Models
+SRC_current_2050_bc85_Dianthus$Compt.By.Models
+SRC_current_2050_he26_Dianthus$Compt.By.Models
+SRC_current_2050_he85_Dianthus$Compt.By.Models
 ##============================================================================##
 
 
@@ -483,12 +483,12 @@ SRC_current_2070_he85_Dianthus$Compt.By.Models
 ## On the whole island
 ##--------------------
 
-Dianthus_src_map_cc26 <- stack(SRC_current_2070_cc26_Dianthus$Diff.By.Pixel)
-Dianthus_src_map_cc85 <- stack(SRC_current_2070_cc85_Dianthus$Diff.By.Pixel)
-Dianthus_src_map_bc26 <- stack(SRC_current_2070_bc26_Dianthus$Diff.By.Pixel)
-Dianthus_src_map_bc85 <- stack(SRC_current_2070_bc85_Dianthus$Diff.By.Pixel)
-Dianthus_src_map_he26 <- stack(SRC_current_2070_he26_Dianthus$Diff.By.Pixel)
-Dianthus_src_map_he85 <- stack(SRC_current_2070_he85_Dianthus$Diff.By.Pixel)
+Dianthus_src_map_cc26 <- stack(SRC_current_2050_cc26_Dianthus$Diff.By.Pixel)
+Dianthus_src_map_cc85 <- stack(SRC_current_2050_cc85_Dianthus$Diff.By.Pixel)
+Dianthus_src_map_bc26 <- stack(SRC_current_2050_bc26_Dianthus$Diff.By.Pixel)
+Dianthus_src_map_bc85 <- stack(SRC_current_2050_bc85_Dianthus$Diff.By.Pixel)
+Dianthus_src_map_he26 <- stack(SRC_current_2050_he26_Dianthus$Diff.By.Pixel)
+Dianthus_src_map_he85 <- stack(SRC_current_2050_he85_Dianthus$Diff.By.Pixel)
 
 
 my.at <- seq(-2.5,1.5,1) 
